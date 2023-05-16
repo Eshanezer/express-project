@@ -18,6 +18,24 @@ app.get('/friends',(req,res)=>{
     res.json(firends);
 });
 
+app.use(express.json());
+
+app.post('/friend',(req,res)=>{
+
+    if(!req.body.name){
+       return res.status(400).json({
+            error:"validation Fail "
+        });
+    }
+
+    const newFriend={
+        name: req.body.name,
+        id:firends.length
+    };
+    firends.push(newFriend);
+    res.json(newFriend);
+});
+
 app.get('/friends/:id',(req,res)=>{
     const id = Number(req.params.id);
     const friend =firends[id];
