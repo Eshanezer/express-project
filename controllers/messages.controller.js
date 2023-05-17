@@ -2,7 +2,7 @@ const path = require('path');
 
 function getMessage (req,res){
   //  res.send('Get Message');
-   res.sendFile(    path.join(__dirname,'..','public','a.png'));
+   res.sendFile(    path.join(__dirname,'..','public','img','a.png'));
 };
 
 function postMessage (req,res){
